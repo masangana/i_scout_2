@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Credentials;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -51,6 +53,8 @@ class UserController extends Controller
 
         //return $user;
         $user->save();
+
+        Mail::to($user->email)->send(new Credentials($user, $password) );
         
         return redirect()->route('district_users.index');
     }

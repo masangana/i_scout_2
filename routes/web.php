@@ -1,7 +1,9 @@
 <?php
 
+use App\Mail\Credentials;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Province\DashboardController as ProvinceDashboardController;
 use App\Http\Controllers\Province\DistrictController as  ProvinceDistrictController;
 use App\Http\Controllers\Province\DistrictUserController;
@@ -44,4 +46,10 @@ Route::group(['middleware' => ['auth', 'role:groupe']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/users', UserController::class);
+});
+
+//Route for mailing
+
+Route::get('/email', function () {
+    Mail::to('alexmasangana@gmail.com')->send(new Credentials() );
 });
