@@ -19,7 +19,23 @@ class District extends Model
         'name',
         'code',
         'description',
+        'province_id',
     ];
+
+    public function province() {
+        return $this->belongsTo(Province::class);
+    }
+
+        /**
+     * Get all of the users for the Province
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function users()
+    {
+        return $this->morphMany(User::class, 'userable');
+    }
 
     
 }

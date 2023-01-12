@@ -30,4 +30,14 @@ class Province extends Model
     {
         return $this->morphMany(User::class, 'userable');
     }
+
+    /**
+     * Get all of the districts for the Province
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function districts()
+    {
+        return $this->hasMany(District::class);
+    }
 }
