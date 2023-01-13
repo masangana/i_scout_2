@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\Credentials;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -56,13 +57,25 @@ class UserController extends Controller
 
         Mail::to($user->email)->send(new Credentials($user, $password) );
         
-        return redirect()->route('district_users.index');
+        if ($request->get('district')) {
+            return redirect()->route('district_users.index');
+        } elseif($request->get('groupe')) {
+            return redirect()->route('groupes.show', $request->get('groupe'))->with('success', 'Groupe created successfully.');
+        }
+        
+        
     }
 
     public function is_active($id) {
         $user = User::find($id);
         $user->is_active = !$user->is_active;
         $user->save();
-        return redirect()->route('district_users.index');
+        if (Auth::user()->userable_type == "App\Models\Province") {
+            return redirect()->route('district_users.index');
+        } elseif(Auth::user()->userable_type == "App\Models\District") {
+            return redirect()->route('groupe_users.index');
+        }
+        
+        
     }
 }

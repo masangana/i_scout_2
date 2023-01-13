@@ -38,10 +38,8 @@
                 <label class="form-label">Groupe</label>
                 <div class="col-sm-10">
                 <select class="form-select" aria-label="Default select example" name="groupe">
-                    <option selected>Select</option>
-                    @foreach ($groupes as $groupe )
-                        <option value="{{ $groupe->id }}">{{ $groupe->name }}</option>
-                    @endforeach
+                    <option selected value="{{ $groupes->id }}">{{ $groupes->code }} - {{$groupes->name}} </option>
+                    
                 </select>
                 </div>
             </div>
@@ -54,5 +52,4 @@
       </form><!-- Vertical Form -->
 
     </div>
-  </div>
 </div>

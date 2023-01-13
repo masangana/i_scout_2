@@ -6,7 +6,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href=" {{Route('district.home')}} ">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>District</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -16,12 +16,12 @@
         </a>
         <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href=" {{Route('groupe_users.index')}} ">
+            <a href=" {{Route('groupes.index')}} ">
               <i class="bi bi-circle"></i><span>Liste</span>
             </a>
           </li>
           <li>
-            <a href=" {{Route('groupe_users.create')}} ">
+            <a href=" {{Route('groupes.create')}} ">
               <i class="bi bi-circle"></i><span>Ajouter</span>
             </a>
           </li>
@@ -30,12 +30,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Utilisateurs</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="{{Route('groupe_users.index')}}">
+              <i class="bi bi-circle"></i><span>Liste</span>
             </a>
           </li>
           <li>

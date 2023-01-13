@@ -1,7 +1,7 @@
 @extends('layouts.app3')
 
 @section('menu')
-    @include('province.menu')
+    @include('district.menu')
 @endsection
 
 @section('content')
@@ -34,13 +34,13 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-2 col-form-label">Select</label>
+                <label class="col-sm-2 col-form-label">District</label>
                 <div class="col-sm-10">
                   <select class="form-select"
                           aria-label="Default select example"
-                          name="province"
+                          name="district"
                           required>
-                    <option selected value="1">Kinshasa</option>
+                    <option selected value=" {{$district->id}} ">{{$district->name}}</option>
                   </select>
                 </div>
               </div>
@@ -71,7 +71,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">District</h5>
+            <h5 class="card-title">Groupe Add</h5>
 
           </div>
         </div>
