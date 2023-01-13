@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Province\DashboardController as ProvinceDashboardController;
 use App\Http\Controllers\Province\DistrictController as  ProvinceDistrictController;
 use App\Http\Controllers\Province\DistrictUserController;
+use App\Http\Controllers\District\DistrictGroupeController;
+use App\Http\Controllers\District\GroupeUserController;
 use App\Http\Controllers\District\DashboardController as DistrictDashboardController;
 use App\Http\Controllers\Groupe\DashboardController as GroupeDashboardController;
 use App\Http\Controllers\UserController;
@@ -37,7 +39,9 @@ Route::group(['middleware' => ['auth', 'role:province']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'role:district']], function () {
-    Route::get('/district_dashboard', [DistrictDashboardController::class, 'index']);
+    Route::get('/district_dashboard', [DistrictDashboardController::class, 'index'])->name('district.home');
+    Route::resource('groupes', DistrictGroupeController::class);
+    Route::resource('groupe_users', GroupeUserController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:groupe']], function () {

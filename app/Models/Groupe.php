@@ -18,6 +18,7 @@ class Groupe extends Model
         'name',
         'code',
         'description',
+        'district_id',
     ];
 
     /**
@@ -28,5 +29,10 @@ class Groupe extends Model
     public function users()
     {
         return $this->morphMany(User::class, 'userable');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
     }
 }

@@ -37,5 +37,8 @@ class District extends Model
         return $this->morphMany(User::class, 'userable');
     }
 
-    
+    public function groupes()
+    {
+        return $this->hasMany(Groupe::class);
+    }
 }
