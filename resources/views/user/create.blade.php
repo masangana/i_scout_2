@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Vertical Form</h5>
+      <h5 class="card-title">Ajoutez Un Utilisateur</h5>
 
       <!-- Vertical Form -->
       <form class="row g-3" method="POST" action="{{Route('users.store')}} ">
@@ -48,7 +48,7 @@
         @endif
         
         <div class="text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
           <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
       </form><!-- Vertical Form -->

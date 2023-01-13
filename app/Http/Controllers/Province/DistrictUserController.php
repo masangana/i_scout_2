@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Province;
 
 use App\Http\Controllers\Controller;
 use App\Models\District;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,14 +15,24 @@ class DistrictUserController extends Controller
     }
 
     public function index() {
-        $districts = District::where('province_id', Auth::user()->userable_id)->get();
-
-        //$districts = null;
+        $districts = District::with('users') 
+                                ->where('province_id', Auth::user()
+                                ->userable_id)->get();
         $groupes = '';
 
-       // return $districts;
+        //return $districts;
 
-        return view('province.user.add',[
+        return view('province.user.index',[
+            'districts' => $districts,
+            'groupes' => $groupes,
+        ]);
+    }
+
+    public function create() {
+        $districts = District::where('province_id', Auth::user()->userable_id)->get();
+        $groupes = '';
+        return view('province.user.add',
+        [
             'districts' => $districts,
             'groupes' => $groupes,
         ]);

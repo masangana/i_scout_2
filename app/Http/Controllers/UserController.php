@@ -58,4 +58,11 @@ class UserController extends Controller
         
         return redirect()->route('district_users.index');
     }
+
+    public function is_active($id) {
+        $user = User::find($id);
+        $user->is_active = !$user->is_active;
+        $user->save();
+        return redirect()->route('district_users.index');
+    }
 }

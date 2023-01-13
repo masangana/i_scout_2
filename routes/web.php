@@ -46,10 +46,5 @@ Route::group(['middleware' => ['auth', 'role:groupe']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/users', UserController::class);
-});
-
-//Route for mailing
-
-Route::get('/email', function () {
-    Mail::to('alexmasangana@gmail.com')->send(new Credentials() );
+    Route::post('/users/{user}/is_active', [UserController::class, 'is_active'])->name('users.is_active');
 });

@@ -27,9 +27,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($province->districts as $district )
+                        @foreach ($province->districts as $index => $district )
                             <tr>
-                                <th scope="row"></th>
+                                <th scope="row">{{$index+1}}</th>
                                 <td>{{$district->name}}</td>
                                 <td>{{$province->name}}</td>
                                 <td>{{$district->code}} </td>
