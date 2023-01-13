@@ -35,4 +35,9 @@ class Groupe extends Model
     {
         return $this->belongsTo(District::class);
     }
+
+    public function personnes()
+    {
+        return $this->hasMany(Personne::class);
+    }  
 }

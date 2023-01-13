@@ -33,7 +33,7 @@ Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'role:province']], function () {
-    Route::get('/province_dashboard', [ProvinceDashboardController::class, 'index']);
+    Route::get('/province_dashboard', [ProvinceDashboardController::class, 'index'])->name('province.home');
     Route::resource('districts', ProvinceDistrictController::class);
     Route::resource('district_users', DistrictUserController::class);
 });
@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth', 'role:district']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'role:groupe']], function () {
-    Route::get('/groupe_dashboard', [GroupeDashboardController::class, 'index']);
+    Route::get('/groupe_dashboard', [GroupeDashboardController::class, 'index'])->name('groupe.home');
 });
 
 Route::group(['middleware' => ['auth']], function () {
