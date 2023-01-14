@@ -60,4 +60,12 @@ class Personne extends Model
         return Carbon::parse($this->attributes['date_naissance'])->age;
     }
     
+    public function scopeRecordsByMonth($query, $month){
+
+        return $query->whereMonth('created_at', $month );
+
+        /*return $this->selectRaw('count(*) as count, MONTH(created_at) as month')
+        ->groupBy('month')
+        ->get();*/
+    }
 }
