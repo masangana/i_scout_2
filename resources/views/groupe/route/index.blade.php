@@ -11,7 +11,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title capitalized">La route </h5>
+            <h5 class="card-title text-capitalize">{{$unite}} </h5>
             <p>
               Votre {{$unite}} compte {{$count}} membre(s). 
               Vous trouverez plus d'info dans le tableau 

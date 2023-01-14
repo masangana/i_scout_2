@@ -32,6 +32,9 @@ class Personne extends Model
         'province_id',
     ];
 
+    protected $date = [
+        'date_naissance',
+    ];
     public function formations()
     {
         return $this->hasMany(Formation::class);
