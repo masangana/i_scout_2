@@ -32,7 +32,7 @@ class Personne extends Model
         'province_id',
     ];
 
-    protected $date = [
+    protected $dates = [
         'date_naissance',
     ];
     public function formations()

@@ -53,18 +53,53 @@
               <h5 class="card-title"> Détails Du Profile</h5>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label ">Nom</div>
-                <div class="col-lg-9 col-md-8"> {{$personne->nom}} {{$personne->post_nom}} {{$personne->prenom}} </div>
+                <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-4 label ">Nom</div>
+                  <div class="col-lg-9 col-md-8"> {{$personne->nom}} {{$personne->post_nom}} {{$personne->prenom}} </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-4 label">Totem</div>
+                  <div class="col-lg-9 col-md-8">{{$personne->totem}}</div>
+                </div>
+                
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Totem</div>
-                <div class="col-lg-9 col-md-8">{{$personne->totem}}</div>
+                
               </div>
 
               <div class="row">
-                <div class="col-lg-3 col-md-4 label">Lieu et Date de Naissance</div>
-                <div class="col-lg-9 col-md-8">{{$personne->lieu_naissance}} {{$personne->date_naissance}}</div>
+                <div class="col-lg-6">
+                  <div class="col-lg-6 col-md-4 label">Lieu de Naissance</div>
+                  <div class="col-lg-6 col-md-8">{{$personne->lieu_naissance}}</div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="col-lg-6 col-md-4 label">Date de Naissance</div>
+                  <div class="col-lg-6 col-md-8">{{$personne->date_naissance->format('d/m/Y')}}</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="col-lg-6 col-md-4 label">Nationalité</div>
+                  <div class="col-lg-6 col-md-8">{{$personne->nationalite}}</div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="col-lg-6 col-md-4 label">Adresse</div>
+                  <div class="col-lg-6 col-md-8">{{$personne->adresse}}</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="col-lg-6 col-md-4 label">Nationalité</div>
+                  <div class="col-lg-6 col-md-8">{{$personne->nationalite}}</div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="col-lg-6 col-md-4 label">Adresse</div>
+                  <div class="col-lg-6 col-md-8">{{$personne->adresse}}</div>
+                </div>
               </div>
 
               <div class="row">
