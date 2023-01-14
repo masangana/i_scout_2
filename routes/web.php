@@ -61,3 +61,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/personnes', PersonneController::class);
     Route::post('/personnes/{personne}/is_active', [PersonneController::class, 'is_active'])->name('personnes.is_active');
 });
+
+
+
+Route::get('add-to-log', [App\Http\Controllers\HomeController::class, 'myTestAddToLog']);
+Route::get('logActivity',[App\Http\Controllers\HomeController::class, 'logActivity']);

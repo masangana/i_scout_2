@@ -6,6 +6,7 @@ use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Groupe;
+use App\Models\LogActivity;
 
 class PersonneController extends Controller
 {
@@ -74,6 +75,7 @@ class PersonneController extends Controller
         $personne = Personne::find($id);
         $personne->is_active = !$personne->is_active;
         $personne->save();
+        \LogActivity::addToLog('update user');
         switch($personne->unite){
             case 'meute':
                 return redirect()->route('groupe.meute');
