@@ -69,4 +69,32 @@ class PersonneController extends Controller
             'personne' => $personne,
         ]);
     }
+
+    public function is_active($id) {
+        $personne = Personne::find($id);
+        $personne->is_active = !$personne->is_active;
+        $personne->save();
+        switch($personne->unite){
+            case 'meute':
+                return redirect()->route('groupe.meute');
+                break;
+            case 'troupe':
+                return redirect()->route('groupe.troupe');
+                break;
+            case 'compagnie':
+                return redirect()->route('groupe.compagnie');
+                break;
+            case 'clan':
+                return redirect()->route('groupe.clan');
+                break;
+            case 'route':
+                return redirect()->route('groupe.route');
+                break;
+            default:
+                return redirect()->route('groupe.home');
+        }
+
+    }
+
+
 }

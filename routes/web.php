@@ -59,4 +59,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/users', UserController::class);
     Route::post('/users/{user}/is_active', [UserController::class, 'is_active'])->name('users.is_active');
     Route::resource('/personnes', PersonneController::class);
+    Route::post('/personnes/{personne}/is_active', [PersonneController::class, 'is_active'])->name('personnes.is_active');
 });
