@@ -40,4 +40,14 @@ class Province extends Model
     {
         return $this->hasMany(District::class);
     }
+
+    /**
+     * Get all of the personnes for the Province
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function personnes()
+    {
+        return $this->hasMany(Personne::class);
+    }
 }
