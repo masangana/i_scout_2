@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('photo');
             $table->string('etat_civil');
+            $table->string('unite');
             $table->foreignId('groupe_id')->constrained('groupes');
             $table->foreignId('district_id')->constrained('districts');
             $table->foreignId('province_id')->constrained('provinces');

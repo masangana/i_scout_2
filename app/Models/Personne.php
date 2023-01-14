@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -51,5 +52,9 @@ class Personne extends Model
         return $this->belongsTo(Province::class);
     }
 
+    public function age()
+    {
+        return Carbon::parse($this->attributes['date_naissance'])->age;
+    }
     
 }
