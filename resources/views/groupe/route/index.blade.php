@@ -23,6 +23,7 @@
                   <th scope="col">Nom</th>
                   <th scope="col">Post-Nom</th>
                   <th scope="col">Prénom</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Date de naissance</th>
                   <th scope="col">Age</th>
                 </tr>
@@ -38,6 +39,13 @@
                         </td>
                         <td> {{ $routier->post_nom }} </td>
                         <td> {{ $routier->prenom }}</td>
+                        <td> 
+                            @if ($routier->is_active)
+                              <span class="badge bg-success">Actif</span>
+                            @else
+                              <span class="badge bg-danger">Non Actif</span>
+                            @endif
+                        </td>
                         <td>{{ $routier->date_naissance }}</td>
                         <td>{{ $routier->age() }}</td>
                         
