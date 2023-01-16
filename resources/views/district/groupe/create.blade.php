@@ -7,6 +7,13 @@
 @section('content')
 <section class="section">
     <div class="row">
+      <div class="col-lg-3">
+
+        <div class="card">
+          
+        </div>
+
+      </div>
       <div class="col-lg-6">
 
         <div class="card">
@@ -45,6 +52,21 @@
                 </div>
               </div>
               <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Affiliation</label>
+                <div class="col-sm-10">
+                  <select class="form-select"
+                          aria-label="Default select example"
+                          name="affiliate"
+                          required>
+                          <option selected>Select</option>
+                          <option value="catholique">catholique</option>
+                          <option value="kimbaguiste">kimbaguiste</option>
+                          <option value="protestant">protestant</option>
+                          <option value="autre">autre</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Textarea</label>
                 <div class="col-sm-10">
                   <textarea class="form-control"
@@ -67,13 +89,10 @@
 
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-3">
 
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Groupe Add</h5>
-
-          </div>
+          
         </div>
 
       </div>

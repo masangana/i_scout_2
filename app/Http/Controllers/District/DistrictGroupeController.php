@@ -36,12 +36,14 @@ class DistrictGroupeController extends Controller
         
         $request->validate([
             'name' => 'required',
+            'affiliate' => 'required',
         ]);
 
         $groupe = new Groupe([
             'name' => $request->get('name'),
             'code' => $request->get('code'),
             'description' => $request->get('description'),
+            'affiliate' => $request->get('affiliate'),
             'district_id' => $request->get('district'),
         ]);
         

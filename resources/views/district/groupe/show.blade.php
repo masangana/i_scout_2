@@ -75,6 +75,7 @@
             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
               <!-- Profile Edit Form -->
+                <h5 class="card-title">Profile Details</h5>
                 @include('personne.index')        
               <!-- End Profile Edit Form -->
 
