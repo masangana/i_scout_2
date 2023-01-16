@@ -39,12 +39,22 @@ class DistrictGroupeController extends Controller
             'affiliate' => 'required',
         ]);
 
+        //return $request->all();
+        $district = District::where('id',$request->get('district'))->first();
         $groupe = new Groupe([
             'name' => $request->get('name'),
             'code' => $request->get('code'),
             'description' => $request->get('description'),
             'affiliate' => $request->get('affiliate'),
             'district_id' => $request->get('district'),
+            'province_id' => $district->province_id,
+            'creation_date' => $request->get('creation_date'),
+            'adresse' => $request->get('adresse'),
+            'phone' => $request->get('phone'),
+            'email' => $request->get('email'),
+            'couleur_1' => $request->get('couleur_1'),
+            'couleur_2' => $request->get('couleur_2'),
+            'couleur_3' => $request->get('couleur_3'),
         ]);
         
         $groupe->save();

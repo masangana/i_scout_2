@@ -14,7 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('groupes', function (Blueprint $table) {
-            //
+            $table->string('affiliate')->nullable();
+            $table->foreignId('province_id')->constrained('provinces');
+            $table->date('creation_date');
+            $table->string('adresse');
+            $table->string('phone');
+            $table->string('email')->nullable();
+            $table->string('couleur_1')->nullable();
+            $table->string('couleur_2')->nullable();
+            $table->string('couleur_3')->nullable();
+            $table->string('is_actif')->default(true);
         });
     }
 
@@ -26,16 +35,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('groupes', function (Blueprint $table) {
-            $table->string('affiliate')->nullable()->before('district_id');
-            $table->foreignId('province_id')->constrained('provinces');
-            $table->date('creation_date');
-            $table->string('adresse');
-            $table->string('phone');
-            $table->string('email')->nullable();
-            $table->string('couleur_1')->nullable();
-            $table->string('couleur_2')->nullable();
-            $table->string('couleur_3')->nullable();
-            $table->string('is_actif')->default(true);
+            
         });
     }
 };
