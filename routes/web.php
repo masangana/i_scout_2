@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth', 'role:province']], function () {
 
 Route::group(['middleware' => ['auth', 'role:district']], function () {
     Route::get('/district_dashboard', [DistrictDashboardController::class, 'index'])->name('district.home');
-    Route::resource('groupes', DistrictGroupeController::class);
+    //Route::resource('groupes', DistrictGroupeController::class);
     Route::resource('groupe_users', GroupeUserController::class);
 });
 
@@ -60,4 +60,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/users/{user}/is_active', [UserController::class, 'is_active'])->name('users.is_active');
     Route::resource('/personnes', PersonneController::class);
     Route::post('/personnes/{personne}/is_active', [PersonneController::class, 'is_active'])->name('personnes.is_active');
+    Route::resource('groupes', DistrictGroupeController::class);
 });
+
+
+
+Route::get('add-to-log', [App\Http\Controllers\HomeController::class, 'myTestAddToLog']);
+Route::get('logActivity',[App\Http\Controllers\HomeController::class, 'logActivity']);

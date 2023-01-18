@@ -29,6 +29,7 @@ class LoginController extends Controller
      */
     public function redirectTo() {
         $role = Auth::user()->role; 
+        \LogActivity::addToLog("Connexion " .Auth::user()->id);
         switch ($role) {
           case 'province':
             return '/province_dashboard';
@@ -53,6 +54,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        \LogActivity::addToLog("Deconnexion ");
         $this->middleware('guest')->except('logout');
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Personne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Groupe;
+use App\Models\LogActivity;
 
 class PersonneController extends Controller
 {
@@ -58,7 +59,7 @@ class PersonneController extends Controller
         $personne->district_id = $groupe->district->id;
         $personne->province_id = $groupe->district->province_id;
         $personne->save();
-
+        \LogActivity::addToLog("Création d'une Persone " .$personne->id);
         return redirect()->route('personnes.create');
     }
 
@@ -74,6 +75,9 @@ class PersonneController extends Controller
         $personne = Personne::find($id);
         $personne->is_active = !$personne->is_active;
         $personne->save();
+        //return $log = serialize($personne);
+
+        \LogActivity::addToLog("Mise à jour Persone " .$personne->id);
         switch($personne->unite){
             case 'meute':
                 return redirect()->route('groupe.meute');

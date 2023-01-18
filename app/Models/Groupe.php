@@ -19,6 +19,15 @@ class Groupe extends Model
         'code',
         'description',
         'district_id',
+        'province_id',
+        'creation_date',
+        'adresse',
+        'phone',
+        'email',
+        'couleur_1',
+        'couleur_2',
+        'couleur_3',
+        'is_actif'
     ];
 
     /**

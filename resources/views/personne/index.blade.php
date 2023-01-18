@@ -1,13 +1,9 @@
-<section class="section">
+
+
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title text-capitalize">{{$unite}} </h5>
-            <p>
-              Votre {{$unite}} compte {{$count}} membre(s). 
-              Vous trouverez plus d'info dans le tableau 
-            </p>
             <table class="table datatable">
               <thead>
                 <tr>
@@ -17,6 +13,7 @@
                   <th scope="col">Prénom</th>
                   <th scope="col">Status</th>
                   <th scope="col">Date de naissance</th>
+                  <th scope="col">Unité</th>
                   <th scope="col">Age</th>
                   <th>Actions</th>
                 </tr>
@@ -40,6 +37,7 @@
                             @endif
                         </td>
                         <td>{{ $personne->date_naissance->format('d-m-Y') }}</td>
+                        <td class="text-capitalize">{{ $personne->unite }}</td>
                         <td>{{ $personne->age() }}</td>
                         <td>
                             <div class="dropdown">
@@ -80,4 +78,5 @@
         </div>
       </div>
     </div>
-</section>
+
+    

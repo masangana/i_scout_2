@@ -16,7 +16,6 @@ class DistrictGroupeController extends Controller
     public function index() {
         $district = District::with('groupes') 
                         ->where('id', Auth::user()->userable_id)->first();
-        //return $district;
 
         return view('district.groupe.index',
         [
@@ -37,13 +36,25 @@ class DistrictGroupeController extends Controller
         
         $request->validate([
             'name' => 'required',
+            'affiliate' => 'required',
         ]);
 
+        //return $request->all();
+        $district = District::where('id',$request->get('district'))->first();
         $groupe = new Groupe([
             'name' => $request->get('name'),
             'code' => $request->get('code'),
             'description' => $request->get('description'),
+            'affiliate' => $request->get('affiliate'),
             'district_id' => $request->get('district'),
+            'province_id' => $district->province_id,
+            'creation_date' => $request->get('creation_date'),
+            'adresse' => $request->get('adresse'),
+            'phone' => $request->get('phone'),
+            'email' => $request->get('email'),
+            'couleur_1' => $request->get('couleur_1'),
+            'couleur_2' => $request->get('couleur_2'),
+            'couleur_3' => $request->get('couleur_3'),
         ]);
         
         $groupe->save();
@@ -52,12 +63,16 @@ class DistrictGroupeController extends Controller
     }
 
     public function show($id) {
-        $groupes = Groupe::with('users')->findorfail($id);
+        $groupes = Groupe::with('users', 'personnes')->findorfail($id);
+        $personnes = $groupes->personnes ;
+
+        //return $personnes ;
 
         $districts = '';
         return view('district.groupe.show', 
             [
                 'groupes' => $groupes,
+                'personnes' => $personnes,
                 'districts' => $districts,
             ]
         );
