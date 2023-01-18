@@ -38,18 +38,18 @@ class DashboardController extends Controller
                       ->orderBy('created_at', 'desc')
                       ->get();
 
-      $janvier = Personne::RecordsByMonth("01")->get();
-      $fevrier = Personne::RecordsByMonth("02")->get();
-      $mars = Personne::RecordsByMonth("03")->get();
-      $avril = Personne::RecordsByMonth("04")->get();
-      $mai = Personne::RecordsByMonth("05")->get();
-      $juin = Personne::RecordsByMonth("06")->get();
-      $juillet = Personne::RecordsByMonth("07")->get();
-      $aout = Personne::RecordsByMonth("08")->get();
-      $septembre = Personne::RecordsByMonth("09")->get();
-      $octobre = Personne::RecordsByMonth("10")->get();
-      $novembre = Personne::RecordsByMonth("11")->get();
-      $decembre = Personne::RecordsByMonth("12")->get();
+      $janvier = Personne::RecordsByMonth("01", Auth::user()->userable_id)->get();
+      $fevrier = Personne::RecordsByMonth("02", Auth::user()->userable_id)->get();
+      $mars = Personne::RecordsByMonth("03", Auth::user()->userable_id)->get();
+      $avril = Personne::RecordsByMonth("04", Auth::user()->userable_id)->get();
+      $mai = Personne::RecordsByMonth("05", Auth::user()->userable_id)->get();
+      $juin = Personne::RecordsByMonth("06", Auth::user()->userable_id)->get();
+      $juillet = Personne::RecordsByMonth("07", Auth::user()->userable_id)->get();
+      $aout = Personne::RecordsByMonth("08", Auth::user()->userable_id)->get();
+      $septembre = Personne::RecordsByMonth("09", Auth::user()->userable_id)->get();
+      $octobre = Personne::RecordsByMonth("10", Auth::user()->userable_id)->get();
+      $novembre = Personne::RecordsByMonth("11", Auth::user()->userable_id)->get();
+      $decembre = Personne::RecordsByMonth("12", Auth::user()->userable_id)->get();
  
       return view('groupe.dashboard', [
         'clan' => $clan,

@@ -7,19 +7,14 @@
 @section('content')
 <section class="section">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-2">
+      </div>
 
+      <div class="col-lg-8">
         @include('user.create')
+      </div>
 
-      <div class="col-lg-6">
-
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Creer Element</h5>
-
-          </div>
-        </div>
-
+      <div class="col-lg-2">
       </div>
     </div>
   </section>

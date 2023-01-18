@@ -39,7 +39,7 @@
                               <span class="badge bg-danger">Non Actif</span>
                             @endif
                         </td>
-                        <td>{{ $personne->date_naissance }}</td>
+                        <td>{{ $personne->date_naissance->format('d-m-Y') }}</td>
                         <td>{{ $personne->age() }}</td>
                         <td>
                             <div class="dropdown">

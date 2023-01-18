@@ -13,7 +13,7 @@
         <div class="row">
 
           <!-- Sales Card -->
-          <div class="col-xxl-12 col-md-12">
+          <div class="col-xxl-6 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title">Groupes <span>| Statistiques</span></h5>
@@ -25,6 +25,27 @@
                   <div class="ps-3">
                     <h6>{{$groupes->count()}}</h6>
                     <span class="text-muted small pt-2 ps-1">Dans le district. Le nombre de groupe sera mis à jour</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Sales Card -->
+          <div class="col-xxl-6 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Districts <span>| Statistiques</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>{{$districts->count()}}</h6>
+                    <span class="text-muted small pt-2 ps-1">Dans la province. Le nombre sera mis à jour</span>
 
                   </div>
                 </div>
