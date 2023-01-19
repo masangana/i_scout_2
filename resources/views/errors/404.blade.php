@@ -12,7 +12,16 @@
         <h1>404</h1>
         <h2>Désolé, Une erreur s'est produite</h2>
         
-        <a class="btn" href="{{Route('home')}} ">Accueil </a>
+        
+        @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a class="btn" href="{{Route('home')}} ">Accueil </a>
+                    @else
+                        <a class="btn" href="/">Accueil </a>
+                    @endauth
+                </div>
+            @endif
         <div class="credits">
           
         </div>

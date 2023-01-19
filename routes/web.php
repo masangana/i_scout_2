@@ -14,6 +14,7 @@ use App\Http\Controllers\Groupe\DashboardController as GroupeDashboardController
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonneController;
 use App\Http\Controllers\Groupe\UniteController;
+use App\Http\Controllers\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,8 @@ use App\Http\Controllers\Groupe\UniteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [VisitorController::class, 'index']);
 
 Auth::routes(['register' => false]);
 
