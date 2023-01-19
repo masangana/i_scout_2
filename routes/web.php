@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'role:province']], function () {
     Route::get('/province_dashboard', [ProvinceDashboardController::class, 'index'])->name('province.home');
@@ -63,7 +63,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('groupes', DistrictGroupeController::class);
 });
 
-
-
 Route::get('add-to-log', [App\Http\Controllers\HomeController::class, 'myTestAddToLog']);
 Route::get('logActivity',[App\Http\Controllers\HomeController::class, 'logActivity']);
+
